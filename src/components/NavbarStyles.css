@@ -1,0 +1,27 @@
+/* src/components/NavbarStyles.css */
+
+.navbar .navbar-brand {
+  color: black;
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  position:absolute;
+  top:10px;
+  left: 30px;
+}
+
+.navbar .nav-link {
+  background-color: green;
+  color: white;
+  top:10px;
+  margin-right: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  position:relative;
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover {
+  color: white;
+  opacity: 0.8;
+}

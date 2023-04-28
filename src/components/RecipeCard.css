@@ -1,0 +1,61 @@
+.recipe-card {
+    width: 18rem;
+  }
+  
+  .recipe-card-img {
+    width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 50px;
+  }
+  
+.recipe-card-body:hover{
+
+
+  }
+
+  
+/* Add the following styles to your RecipeCard.css */
+
+.add-to-list-btn {
+    background-color: #9C27B0;
+    border-color: #9C27B0;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-left: 8px;
+  }
+  
+  .add-to-list-btn:hover {
+    background-color: #7B1FA2;
+    border-color: #6A1B9A;
+    text-decoration: none;
+    color: white;
+  }
+  
+
+.view-recipe-btn {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .view-recipe-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    text-decoration: none;
+    color: white;
+  }
+  

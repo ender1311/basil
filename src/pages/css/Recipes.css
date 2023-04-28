@@ -1,0 +1,32 @@
+.Home {
+    margin: 30px;
+    background-color: white;
+  }
+  
+.recipe-row {
+display: flex;
+flex-wrap: wrap;
+}
+
+.recipe-card-add-new {
+    position: relative;
+    width: 18rem;
+    height: 18rem;
+    border: 2px dashed gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .recipe-card-add-new::before {
+    content: "+";
+    font-size: 4rem;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  

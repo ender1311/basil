@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
+import {AppNavbar} from "./components/AppNavbar";
+import {Recipes} from "./pages/Recipes";
+import "./App.css";
 
-function App() {
+import {RecipeDetail} from "./components/RecipeDetail";
+import {GroceryList} from "./pages/GroceryList";
+import {KrogerPage} from "./pages/KrogerPage";
+import { CreateRecipe } from "./components/CreateRecipe"; // Import the CreateRecipe component
+
+export function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppNavbar />
+      <Routes>
+        <Route path="/" element={<Recipes />} />
+        <Route path="/recipe/:id" element={<RecipeDetail />} />
+        <Route path="/create" element={<CreateRecipe />} />
+        
+        <Route path="/grocery-list" element={<GroceryList />} />
+        <Route path="/kroger" element={<KrogerPage />} /> 
+        
+      </Routes>
     </div>
   );
 }
 
-export default App;
