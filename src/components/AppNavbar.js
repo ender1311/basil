@@ -10,7 +10,9 @@ export function AppNavbar() {
       <Nav className="ml-auto">
         
       
-        <Nav.Link as={Link} to="/">Recipes</Nav.Link>
+        <Nav.Link as={Link} to="/">View Recipes</Nav.Link>
+        <Nav.Link as={Link} to="/add-recipe-url">Add Recipe (URL)</Nav.Link>
+        <Nav.Link as={Link} to="/copy-recipe">Copy Recipe</Nav.Link>
         <Nav.Link as={Link} to="/grocery-list">Grocery List</Nav.Link>
         <Nav.Link as={Link} to="/kroger">Kroger</Nav.Link>
       </Nav>
