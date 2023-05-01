@@ -1,0 +1,14 @@
+/* toastAnimation.css */
+@keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slide-in-from-right {
+    animation: slideInFromRight 1s ease-out;
+  }
+  

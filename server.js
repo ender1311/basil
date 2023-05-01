@@ -48,7 +48,7 @@ app.post("/api/recipes", (req, res) => {
     newRecipe.id = recipesData.length + 1;
     recipesData.push(newRecipe);
 
-    fs.writeFile(recipesFilePath, JSON.stringify(recipesData), (err) => {
+    fs.writeFile(recipesFilePath, JSON.stringify(recipesData, null, 2), (err) => {
       if (err) {
         console.error(err);
         res.status(500).send("Error writing recipes file");

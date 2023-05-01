@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
 // import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {AppNavbar} from "./components/AppNavbar";
 import {Recipes} from "./pages/Recipes";
 import "./App.css";
@@ -11,12 +11,15 @@ import { CreateRecipe } from "./components/CreateRecipe"; // Import the CreateRe
 
 import {AddRecipeUrl} from './components/AddRecipeUrl';
 import {CopyRecipe} from './components/CopyRecipe';
+import {Login} from "./components/Login";
+
 
 export function App() {
   return (
     <div className="App">
       <AppNavbar />
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Recipes />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
         <Route path="/create" element={<CreateRecipe />} />

@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./RecipeCard.css";
+import "./toastAnimation.css"; // Import the custom CSS
 
 export function RecipeCard({ recipe }) {
   const [addedToList, setAddedToList] = useState(false);
@@ -17,11 +18,20 @@ export function RecipeCard({ recipe }) {
     };
     localStorage.setItem("groceryItems", JSON.stringify([...groceryItems, newGroceryItem]));
     setAddedToList(true);
+    toast.success("Recipe added to grocery list", {
+      theme: "colored",
+      icon: "🚀",
+    });
   };
 
   return (
     <div>
-      <ToastContainer position="top-center" autoClose={2000} hideProgressBar={false} progressBar  />
+      <ToastContainer
+        position= "top-left"
+        autoClose={1400}
+        hideProgressBar={false}
+        progressBar
+      />
       <Card className="recipe-card" style={{ width: "18rem" }}>
         <Card.Img className="recipe-card-img" variant="top" src={recipe.image} />
         <Card.Body className="recipe-card-body">
@@ -33,7 +43,6 @@ export function RecipeCard({ recipe }) {
           <Link className="add-to-list-btn" to="#" onClick={handleAddToList}>
             Add to list
           </Link>
-          {addedToList && toast("Item added to grocery list")}
         </Card.Body>
       </Card>
     </div>

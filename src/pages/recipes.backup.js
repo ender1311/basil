@@ -35,7 +35,6 @@ export function Recipes() {
                 <RecipeCard recipe={recipe} />
               </Col>
             ))}
-            {/* 
             <Col xs={12} sm={6} md={4} lg={3} className="my-3">
               <Link to="/create">
                 <RecipeCard
@@ -48,8 +47,7 @@ export function Recipes() {
                   className="recipe-card-add-new"
                 />
               </Link>
-            </Col> 
-            */}
+            </Col>
           </Row>
         </Col>
       </Row>

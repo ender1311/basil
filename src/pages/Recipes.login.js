@@ -11,19 +11,27 @@ import {useNavigate} from "react-router-dom";
 
 export function Recipes() {
   const [recipes, setRecipes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/recipes");
-        setRecipes(response.data);
-      } catch (error) {
-        console.error("Error fetching recipes:", error);
-      }
-    };
+    // Check if the user is logged in by checking for user data in localStorage
+    if (!localStorage.getItem("userData")) {
+      // If not logged in, redirect the user to the login page
+      navigate("/login");
+    } else {
+      // If logged in, fetch the recipes
+      const fetchRecipes = async () => {
+        try {
+          const response = await axios.get("http://localhost:3000/api/recipes");
+          setRecipes(response.data);
+        } catch (error) {
+          console.error("Error fetching recipes:", error);
+        }
+      };
 
-    fetchRecipes();
-  }, []);
+      fetchRecipes();
+    }
+  }, [navigate]);
 
   return (
     <Container fluid className="bg-light mt-5 Home" style={{ minHeight: "100vh" }}>
@@ -35,7 +43,6 @@ export function Recipes() {
                 <RecipeCard recipe={recipe} />
               </Col>
             ))}
-            {/* 
             <Col xs={12} sm={6} md={4} lg={3} className="my-3">
               <Link to="/create">
                 <RecipeCard
@@ -48,8 +55,7 @@ export function Recipes() {
                   className="recipe-card-add-new"
                 />
               </Link>
-            </Col> 
-            */}
+            </Col>
           </Row>
         </Col>
       </Row>

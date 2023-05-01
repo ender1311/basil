@@ -23,6 +23,8 @@ module.exports = {
       ),
     },
     fallback: {
+      fs: false,
+      path: false,
       net: false,
       tls: false,
       url: require.resolve("url/"),
