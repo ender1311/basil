@@ -1,11 +1,11 @@
 // src/components/AppNavbar.js
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { useNavigate } from "react-router-dom";
 import "./AppNavbar.css";
 //import bootstrap css
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export function AppNavbar() {
   const navigate = useNavigate();
@@ -35,7 +35,10 @@ export function AppNavbar() {
         <img src="/Basil_Logo_only.png" alt="Basil Logo" className="logo" />
         <p className="brand-text">BASIL</p>
       </Link>
-      <Nav className="ml-auto custom-nav">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+      <Nav className="custom-nav">
+        
         <Nav.Link as={Link} to="/">
           View Recipes
         </Nav.Link>
@@ -51,11 +54,14 @@ export function AppNavbar() {
         <Nav.Link as={Link} to="/kroger">
           Kroger
         </Nav.Link>
+        
+        <div className="google-buttons-container">
         {isUserLoggedIn() ? (
           <GoogleLogout
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Logout"
             onLogoutSuccess={handleLogout}
+            className="google_button"
           />
         ) : (
           <GoogleLogin
@@ -64,9 +70,12 @@ export function AppNavbar() {
             onSuccess={onSuccess}
             onFailure={onFailure}
             cookiePolicy={"single_host_origin"}
+            className="google_button"
           />
         )}
+      </div>
       </Nav>
+    </Navbar.Collapse>
     </Navbar>
   );
 }

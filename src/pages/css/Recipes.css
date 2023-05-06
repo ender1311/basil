@@ -1,13 +1,10 @@
 .Home {
-    margin: 30px;
+
     margin-top:30px;
     background-color: white;
   }
   
-.recipe-row {
-display: flex;
-flex-wrap: wrap;
-}
+
 
 .recipe-card-add-new {
     position: relative;

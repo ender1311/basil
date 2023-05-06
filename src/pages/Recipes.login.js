@@ -22,7 +22,7 @@ export function Recipes() {
       // If logged in, fetch the recipes
       const fetchRecipes = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/api/recipes");
+          const response = await axios.get("http://localhost:8000/api/recipes");
           setRecipes(response.data);
         } catch (error) {
           console.error("Error fetching recipes:", error);

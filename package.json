@@ -14,11 +14,13 @@
     "googleapis": "^118.0.0",
     "http-proxy-agent": "^5.0.0",
     "https-proxy-agent": "^5.0.1",
+    "jquery": "^3.6.4",
     "jsdom": "^21.1.1",
     "net": "^1.0.2",
     "nodemon": "^2.0.22",
     "parse5": "^7.1.2",
     "path-browserify": "^1.0.1",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
@@ -33,7 +35,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PORT=3001 && react-scripts start",
+    "start": "react-scripts start",
     "server": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

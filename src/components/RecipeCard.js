@@ -5,7 +5,6 @@ import { toast, ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./RecipeCard.css";
-import "./toastAnimation.css"; // Import the custom CSS
 
 export function RecipeCard({ recipe }) {
   const [addedToList, setAddedToList] = useState(false);
@@ -37,12 +36,14 @@ export function RecipeCard({ recipe }) {
         <Card.Body className="recipe-card-body">
           <Card.Title>{recipe.name}</Card.Title>
           <Card.Text>{recipe.description}</Card.Text>
-          <Button className="view-recipe-btn" as={Link} to={`/recipe/${recipe.id}`} variant="primary">
-            View Recipe
-          </Button>
-          <Link className="add-to-list-btn" to="#" onClick={handleAddToList}>
-            Add to list
-          </Link>
+          <div className="d-flex button_container">
+            <Button className="view-recipe-btn" as={Link} to={`/recipe/${recipe.id}`} variant="primary">
+              View Recipe
+            </Button>
+            <Button className="add-to-list-btn" to="#" onClick={handleAddToList} variant="success">
+              Add to list
+            </Button>
+          </div>
         </Card.Body>
       </Card>
     </div>

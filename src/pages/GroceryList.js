@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./css/GroceryList.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 export function GroceryList() {
   const [groceryItems, setGroceryItems] = useState([]);
@@ -41,13 +43,27 @@ export function GroceryList() {
     }
   };
 
+  const handleSelectAllItems = (recipeIndex) => {
+    if (selectedItems[recipeIndex]?.length === groceryItems[recipeIndex].ingredients.length) {
+      setSelectedItems({
+        ...selectedItems,
+        [recipeIndex]: [],
+      });
+    } else {
+      setSelectedItems({
+        ...selectedItems,
+        [recipeIndex]: groceryItems[recipeIndex].ingredients.map((_, index) => index),
+      });
+    }
+  };
+
   return (
-    <div>
-      <div className="d-flex justify-content-end">
-        <button className="btn btn-primary mr-3" onClick={() => console.log("Add to List")}>
+    <div className="recipe-container">
+      <div className="buttons-container">
+        <button className="btn btn-primary mt-3 mb-3 mr-3" onClick={() => console.log("Add to List")}>
           Add to List
         </button>
-        <button className="btn btn-warning mr-3" onClick={handleRemoveSelected}>
+        <button className="btn btn-warning mt-3 mb-3 mr-3" onClick={handleRemoveSelected}>
           Remove from List
         </button>
         <button className="btn btn-danger mt-3 mb-3 mr-3" onClick={handleRemoveAll}>
@@ -55,26 +71,33 @@ export function GroceryList() {
         </button>
       </div>
       <h2>Grocery List</h2>
-      <ul>
+      <Container>
+      <Row>
         {groceryItems.map((groceryItem, recipeIndex) => (
-          <li key={recipeIndex}>
-            <h3>{groceryItem.name}</h3>
-            <ul>
-              {groceryItem.ingredients.map((ingredient, ingredientIndex) => (
-                <li key={ingredientIndex}>
-                  <input
-                    type="checkbox"
-                    className="mr-2"
-                    checked={selectedItems[recipeIndex]?.includes(ingredientIndex) || false}
-                    onChange={() => handleSelectItem(recipeIndex, ingredientIndex)}
-                  />
-                  {ingredient}
-                </li>
-              ))}
-            </ul>
-          </li>
+          <Col key={recipeIndex} xs={12} md={6}>
+            <div className="recipe-container">
+              <h3 className="recipe-name" onClick={() => handleSelectAllItems(recipeIndex)}>
+                {groceryItem.name}
+              </h3>
+              <ul className="ingredient-list">
+                {groceryItem.ingredients.map((ingredient, ingredientIndex) => (
+                  <li key={ingredientIndex}>
+                    <input
+                      type="checkbox"
+                      className="checkbox-spacing"
+                      checked={selectedItems[recipeIndex]?.includes(ingredientIndex) || false}
+                      onChange={() => handleSelectItem(recipeIndex, ingredientIndex)}
+                    />
+                    {ingredient}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Col>
         ))}
-      </ul>
-    </div>
+      </Row>
+    </Container>
+  </div>
   );
 }
+  

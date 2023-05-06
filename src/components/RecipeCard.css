@@ -1,21 +1,19 @@
 .recipe-card {
-    width: 18rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
   
   .recipe-card-img {
     width: 200px;
     max-height: 200px;
     object-fit: cover;
     border-radius: 50px;
+    margin-top:20px;
   }
   
-.recipe-card-body:hover{
 
-
-  }
-
-  
-/* Add the following styles to your RecipeCard.css */
 
 .add-to-list-btn {
     background-color: #9C27B0;
@@ -27,8 +25,11 @@
     font-size: 14px;
     font-weight: 500;
     display: inline-block;
+    align-items: center;
     transition: background-color 0.3s, border-color 0.3s;
-    margin-left: 8px;
+    margin:10px;
+    width: 120px;
+    height: 40px;
   }
   
   .add-to-list-btn:hover {
@@ -49,7 +50,11 @@
     font-size: 14px;
     font-weight: 500;
     display: inline-block;
+    align-items: center;
+    margin:10px;
     transition: background-color 0.3s, border-color 0.3s;
+    width: 120px;
+    height: 40px;
   }
   
   .view-recipe-btn:hover {

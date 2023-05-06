@@ -19,7 +19,7 @@ export function AddRecipeUrl() {
 
   const fetchRecipeData = async (url) => {
     try {
-      const response = await axios.post("http://localhost:3000/api/fetch-url", { url });
+      const response = await axios.post("http://localhost:8000/api/fetch-url", { url });
 
       const $ = load(response.data);
 
@@ -54,7 +54,7 @@ export function AddRecipeUrl() {
 
     // Send the new recipe to the server
     try {
-      const response = await axios.post("http://localhost:3000/api/recipes", newRecipe);
+      const response = await axios.post("http://localhost:8000/api/recipes", newRecipe);
       console.log(response.data);
 
           // Display toast notification when recipe is successfully created
