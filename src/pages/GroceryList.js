@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import "./css/GroceryList.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { useKrogerContext } from "../context/KrogerContext";
+
 
 export function GroceryList() {
-  const [groceryItems, setGroceryItems] = useState([]);
+  const { groceryItems, setGroceryItems } = useKrogerContext();
+  //const [groceryItems, setGroceryItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState({});
 
   useEffect(() => {

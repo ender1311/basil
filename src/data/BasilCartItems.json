@@ -1,0 +1,574 @@
+[
+  {
+    "productId": "0001111091702",
+    "upc": "0001111091702",
+    "aisleLocations": [],
+    "brand": "Kroger",
+    "categories": [
+      "Produce",
+      "Produce"
+    ],
+    "countryOrigin": "UNITED STATES",
+    "description": "Kroger® Chicken Caesar Salad Kit",
+    "images": [
+      {
+        "perspective": "right",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/right/0001111091702"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/right/0001111091702"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/right/0001111091702"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/right/0001111091702"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/right/0001111091702"
+          }
+        ]
+      },
+      {
+        "perspective": "front",
+        "featured": true,
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/front/0001111091702"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/front/0001111091702"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/front/0001111091702"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/front/0001111091702"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/front/0001111091702"
+          }
+        ]
+      },
+      {
+        "perspective": "back",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/back/0001111091702"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/back/0001111091702"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/back/0001111091702"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/back/0001111091702"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/back/0001111091702"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "itemId": "0001111091702",
+        "favorite": false,
+        "fulfillment": {
+          "curbside": false,
+          "delivery": false,
+          "inStore": false,
+          "shipToHome": false
+        },
+        "size": "6 oz"
+      }
+    ],
+    "itemInformation": {},
+    "temperature": {
+      "indicator": "Refrigerated",
+      "heatSensitive": false
+    }
+  },
+  {
+    "productId": "0001111022319",
+    "upc": "0001111022319",
+    "aisleLocations": [],
+    "brand": "Kroger",
+    "categories": [
+      "Produce",
+      "Produce"
+    ],
+    "countryOrigin": "UNITED STATES",
+    "description": "Kroger® Chicken Caesar Salad Kit",
+    "images": [
+      {
+        "perspective": "left",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/left/0001111022319"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/left/0001111022319"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/left/0001111022319"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/left/0001111022319"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/left/0001111022319"
+          }
+        ]
+      },
+      {
+        "perspective": "front",
+        "featured": true,
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/front/0001111022319"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/front/0001111022319"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/front/0001111022319"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/front/0001111022319"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/front/0001111022319"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "itemId": "0001111022319",
+        "favorite": false,
+        "fulfillment": {
+          "curbside": false,
+          "delivery": false,
+          "inStore": false,
+          "shipToHome": false
+        },
+        "size": "12.15 oz"
+      }
+    ],
+    "itemInformation": {},
+    "temperature": {
+      "indicator": "Refrigerated",
+      "heatSensitive": false
+    }
+  },
+  {
+    "productId": "0007084470557",
+    "upc": "0007084470557",
+    "aisleLocations": [],
+    "brand": "Ka-Me",
+    "categories": [
+      "International",
+      "Pasta, Sauces, Grain"
+    ],
+    "countryOrigin": "SINGAPORE",
+    "description": "Ka-Me Udon Stir-Fry Noodles",
+    "images": [
+      {
+        "perspective": "left",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/left/0007084470557"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/left/0007084470557"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/left/0007084470557"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/left/0007084470557"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/left/0007084470557"
+          }
+        ]
+      },
+      {
+        "perspective": "front",
+        "featured": true,
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/front/0007084470557"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/front/0007084470557"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/front/0007084470557"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/front/0007084470557"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/front/0007084470557"
+          }
+        ]
+      },
+      {
+        "perspective": "right",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/right/0007084470557"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/right/0007084470557"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/right/0007084470557"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/right/0007084470557"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/right/0007084470557"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "itemId": "0007084470557",
+        "favorite": false,
+        "fulfillment": {
+          "curbside": false,
+          "delivery": false,
+          "inStore": false,
+          "shipToHome": false
+        },
+        "size": "14.2 oz"
+      }
+    ],
+    "itemInformation": {},
+    "temperature": {
+      "indicator": "Ambient",
+      "heatSensitive": false
+    }
+  },
+  {
+    "productId": "0080717670594",
+    "upc": "0080717670594",
+    "aisleLocations": [],
+    "brand": "CJ Bibigo",
+    "categories": [
+      "International",
+      "Condiment & Sauces"
+    ],
+    "countryOrigin": "Korea (Republic of [South] Korea)",
+    "description": "CJ Bibigo Original Korean BBQ Sauce",
+    "images": [
+      {
+        "perspective": "front",
+        "featured": true,
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/front/0080717670594"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/front/0080717670594"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/front/0080717670594"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/front/0080717670594"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/front/0080717670594"
+          }
+        ]
+      },
+      {
+        "perspective": "back",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/back/0080717670594"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/back/0080717670594"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/back/0080717670594"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/back/0080717670594"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/back/0080717670594"
+          }
+        ]
+      },
+      {
+        "perspective": "right",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/right/0080717670594"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/right/0080717670594"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/right/0080717670594"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/right/0080717670594"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/right/0080717670594"
+          }
+        ]
+      },
+      {
+        "perspective": "left",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/left/0080717670594"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/left/0080717670594"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/left/0080717670594"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/left/0080717670594"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/left/0080717670594"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "itemId": "0080717670594",
+        "favorite": false,
+        "fulfillment": {
+          "curbside": false,
+          "delivery": false,
+          "inStore": false,
+          "shipToHome": false
+        },
+        "size": "16.9 oz"
+      }
+    ],
+    "itemInformation": {},
+    "temperature": {
+      "indicator": "Ambient",
+      "heatSensitive": false
+    }
+  },
+  {
+    "productId": "0007286924100",
+    "upc": "0007286924100",
+    "aisleLocations": [],
+    "brand": "Wei-Chuan",
+    "categories": [
+      "International"
+    ],
+    "countryOrigin": "TAIWAN, PROVINCE OF CHINA",
+    "description": "Wei-Chuan Dumpling Sauce",
+    "images": [
+      {
+        "perspective": "front",
+        "featured": true,
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/front/0007286924100"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/front/0007286924100"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/front/0007286924100"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/front/0007286924100"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/front/0007286924100"
+          }
+        ]
+      },
+      {
+        "perspective": "back",
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/back/0007286924100"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/back/0007286924100"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/back/0007286924100"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/back/0007286924100"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/back/0007286924100"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "itemId": "0007286924100",
+        "favorite": false,
+        "fulfillment": {
+          "curbside": false,
+          "delivery": false,
+          "inStore": false,
+          "shipToHome": false
+        },
+        "size": "6.5 oz"
+      }
+    ],
+    "itemInformation": {},
+    "temperature": {
+      "indicator": "Ambient",
+      "heatSensitive": false
+    }
+  },
+  {
+    "productId": "0880100599904",
+    "upc": "0880100599904",
+    "aisleLocations": [],
+    "brand": "Sempio",
+    "categories": [
+      "International",
+      "Condiment & Sauces"
+    ],
+    "countryOrigin": "Korea (Republic of [South] Korea)",
+    "description": "Sempio Korean BBQ Bulgogi Sauce",
+    "images": [
+      {
+        "perspective": "front",
+        "featured": true,
+        "sizes": [
+          {
+            "size": "xlarge",
+            "url": "https://www.kroger.com/product/images/xlarge/front/0880100599904"
+          },
+          {
+            "size": "large",
+            "url": "https://www.kroger.com/product/images/large/front/0880100599904"
+          },
+          {
+            "size": "medium",
+            "url": "https://www.kroger.com/product/images/medium/front/0880100599904"
+          },
+          {
+            "size": "small",
+            "url": "https://www.kroger.com/product/images/small/front/0880100599904"
+          },
+          {
+            "size": "thumbnail",
+            "url": "https://www.kroger.com/product/images/thumbnail/front/0880100599904"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "itemId": "0880100599904",
+        "favorite": false,
+        "fulfillment": {
+          "curbside": false,
+          "delivery": false,
+          "inStore": false,
+          "shipToHome": false
+        },
+        "size": "17.6 oz"
+      }
+    ],
+    "itemInformation": {},
+    "temperature": {
+      "indicator": "Ambient",
+      "heatSensitive": false
+    }
+  }
+]

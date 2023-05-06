@@ -67,14 +67,14 @@ export function KrogerPage() {
   useEffect(() => {
 
     // Try to get the access token from localStorage
-    const storedAccessToken = localStorage.getItem('accessToken');
-    //const storedAccessToken = null;
+    //const storedAccessToken = localStorage.getItem('accessToken');
+     const storedAccessToken = null;
 
     if (storedAccessToken) {
         setAccessToken(storedAccessToken);
     } else {
         const code = queryString.parse(window.location.search).code;
-
+        
 
     if (code) {
       console.log(`code: ${code}`);
@@ -170,7 +170,9 @@ export function KrogerPage() {
           </select>
         </div>
       </div>
-      <div style={{ width: '70%' }} className="products-container">
+      <div style={{ width: '70%' }} >
+      <h3>Products</h3>
+      <div className="products-container">
         {products.map((product) => (
             <div key={product.productId} className="product-card">
             {product.images.length > 0 && (
@@ -186,7 +188,7 @@ export function KrogerPage() {
             </div>
         ))}
         </div>
-
+        </div>
 
     </div>
   );

@@ -54,7 +54,9 @@ export function AppNavbar() {
         <Nav.Link as={Link} to="/kroger">
           Kroger
         </Nav.Link>
-        
+        <Nav.Link as={Link} to="/basil-cart">
+          Basil Cart
+        </Nav.Link>
         <div className="google-buttons-container">
         {isUserLoggedIn() ? (
           <GoogleLogout

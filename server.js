@@ -102,6 +102,23 @@ app.post("/api/fetch-url", async (req, res) => {
   }
 });
 
+
+app.post("/api/save-cart", (req, res) => {
+  const cartItems = req.body;
+  const cartItemsFilePath = path.join(__dirname, "src", "data", "BasilCartItems.json");
+
+  fs.writeFile(cartItemsFilePath, JSON.stringify(cartItems, null, 2), (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error writing cart items file");
+      return;
+    }
+
+    res.send("Cart items saved successfully");
+  });
+});
+
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });

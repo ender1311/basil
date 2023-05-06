@@ -7,17 +7,22 @@ import "./App.css";
 import {RecipeDetail} from "./components/RecipeDetail";
 import {GroceryList} from "./pages/GroceryList";
 import {KrogerPage} from "./pages/KrogerPage";
+import {BasilCart} from "./pages/BasilCart";
+
 import { CreateRecipe } from "./components/CreateRecipe"; // Import the CreateRecipe component
 
 import {AddRecipeUrl} from './components/AddRecipeUrl';
 import {CopyRecipe} from './components/CopyRecipe';
 import {Login} from "./components/Login";
 
+import { KrogerProvider } from "./context/KrogerContext";
 
 export function App() {
   return (
+
     <div className="App">
       <AppNavbar />
+      <KrogerProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Recipes />} />
@@ -27,8 +32,11 @@ export function App() {
         <Route path="/copy-recipe" element={<CopyRecipe />} />
         <Route path="/grocery-list" element={<GroceryList />} />
         <Route path="/kroger" element={<KrogerPage />} /> 
+        <Route path="/basil-cart" element={<BasilCart />} />
         
       </Routes>
+
+      </KrogerProvider>
     </div>
   );
 }
