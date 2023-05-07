@@ -15,29 +15,40 @@ export function BasilCart() {
       const fetchKrogerProducts = async () => {
         const fetchedItems = [];
 
-        for (const groceryItem of groceryItems) {
-          try {
-            const response = await axios.get(
-              "https://api.kroger.com/v1/products",
-              {
-                headers: {
-                  Authorization: `Bearer ${accessToken}`,
-                },
-                params: {
-                  'filter.term': groceryItem.name,
-                  'filter.limit': 10,
-                },
-              }
-            );
+        // console log groceryItems
+        console.log("Grocery items:", groceryItems[0].ingredients)
 
-            fetchedItems.push(...response.data.data);
-          } catch (error) {
-            console.error("Error fetching Kroger data:", error);
+        // Loop through each groceryItem
+        for (const groceryItem of groceryItems) {
+          // Loop through each ingredient of the groceryItem
+          for (const ingredient of groceryItem.ingredients) {
+            // Remove number and measurement size from the ingredient
+            const cleanedIngredient = ingredient.replace(/^\d+\s*(\w+)?\s*/, '');
+            console.log("Cleaned ingredient:", cleanedIngredient);
+            try {
+              const response = await axios.get(
+                "https://api.kroger.com/v1/products",
+                {
+                  headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                  },
+                  params: {
+                    'filter.term': cleanedIngredient,
+                    'filter.limit': 1,
+                  },
+                }
+              );
+
+              fetchedItems.push(...response.data.data);
+            } catch (error) {
+              console.error("Error fetching Kroger data:", error);
+            }
           }
         }
 
         setCartItems(fetchedItems);
         console.log("Fetched items:", fetchedItems);
+
         // Save cart items to the server
         try {
           await axios.post("http://localhost:8000/api/save-cart", fetchedItems);
@@ -50,6 +61,8 @@ export function BasilCart() {
       fetchKrogerProducts();
     }
   }, [accessToken, groceryItems]);
+
+
 
     // Helper function to find the correct image URL
     const findImageURL = (images, perspective, size) => {

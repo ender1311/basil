@@ -62,13 +62,31 @@
   }
   
   .google-buttons-container {
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
     margin-left: 5px;
     position: absolute;
-    right:0;
+    right: 0;
+    top: 10px;;
   }
   
   .google_button {
     cursor: pointer;
+  }
+
+  .kroger-api-link {
+    background-color: green;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    position: absolute;
+    top:20px;
+  }
+  
+  .kroger-api-link:hover {
+    color: white;
+    background-color: red;
+ 
   }
   

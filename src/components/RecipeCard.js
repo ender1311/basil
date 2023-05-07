@@ -35,7 +35,9 @@ export function RecipeCard({ recipe }) {
         <Card.Img className="recipe-card-img" variant="top" src={recipe.image} />
         <Card.Body className="recipe-card-body">
           <Card.Title>{recipe.name}</Card.Title>
-          <Card.Text>{recipe.description}</Card.Text>
+
+          {/* <Card.Text>{recipe.description}</Card.Text> */}
+          
           <div className="d-flex button_container">
             <Button className="view-recipe-btn" as={Link} to={`/recipe/${recipe.id}`} variant="primary">
               View Recipe

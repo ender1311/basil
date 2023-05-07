@@ -11,15 +11,23 @@ export function CopyRecipe() {
   const [directions, setDirections] = useState("");
   const navigate = useNavigate();
 
+  // this is helper function to clean up the text
+  const cleanText = (text) => {
+    return text.replace(/^[*-]\s*/, '');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    const cleanedIngredients = ingredients.split("\n").map((item) => cleanText(item));
+    const cleanedDirections = directions.split("\n").map((item) => cleanText(item));
+  
     const newRecipe = {
       name: title,
       description: "",
       image: imageUrl,
-      ingredients: ingredients.split("\n"),
-      directions: directions.split("\n"),
+      ingredients: cleanedIngredients,
+      directions: cleanedDirections,
     };
 
     // Send the new recipe to the server

@@ -40,7 +40,7 @@ export function AppNavbar() {
       <Nav className="custom-nav">
         
         <Nav.Link as={Link} to="/">
-          View Recipes
+          Recipe Catalog
         </Nav.Link>
         <Nav.Link as={Link} to="/add-recipe-url">
           Add Recipe (URL)
@@ -51,9 +51,7 @@ export function AppNavbar() {
         <Nav.Link as={Link} to="/grocery-list">
           Grocery List
         </Nav.Link>
-        <Nav.Link as={Link} to="/kroger">
-          Kroger
-        </Nav.Link>
+
         <Nav.Link as={Link} to="/basil-cart">
           Basil Cart
         </Nav.Link>
@@ -66,6 +64,7 @@ export function AppNavbar() {
             className="google_button"
           />
         ) : (
+          
           <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Login"
@@ -74,7 +73,13 @@ export function AppNavbar() {
             cookiePolicy={"single_host_origin"}
             className="google_button"
           />
+
+        
         )}
+          <Nav.Link as={Link} to="/kroger" className="kroger-api-link"> 
+           Kroger API
+          </Nav.Link>
+          
       </div>
       </Nav>
     </Navbar.Collapse>
