@@ -29,7 +29,7 @@ export function Recipes() {
     <Container fluid className="Home" style={{ minHeight: "100vh" }}>
       <Row>
         <Col style={{ boxShadow: "0px 0px 15px rgba(0,0,0,0.1)" }}>
-          <Row className="recipe-row g-3 my-0" md={2} xs={1} lg={3} xl={4}>
+          <Row className="recipe-row g-3 m-3" md={2} xs={1} lg={3} xl={4}>
             {recipesData.map((recipe) => (
               <Col key={recipe.id}>
                 <RecipeCard recipe={recipe} />

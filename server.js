@@ -102,7 +102,7 @@ app.post("/api/fetch-url", async (req, res) => {
   }
 });
 
-
+// Add a new route for saving cart items
 app.post("/api/save-cart", (req, res) => {
   const cartItems = req.body;
   const cartItemsFilePath = path.join(__dirname, "src", "data", "BasilCartItems.json");
@@ -117,6 +117,41 @@ app.post("/api/save-cart", (req, res) => {
     res.send("Cart items saved successfully");
   });
 });
+
+// Add a new route for updating recipes
+app.post("/api/recipes/update", (req, res) => {
+  const updatedRecipe = req.body;
+  const recipesFilePath = path.join(__dirname, "src", "data", "recipes.json");
+
+  fs.readFile(recipesFilePath, "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error reading recipes file");
+      return;
+    }
+
+    const recipesData = JSON.parse(data);
+
+    const recipeIndex = recipesData.findIndex((recipe) => recipe.id === updatedRecipe.id);
+
+    if (recipeIndex !== -1) {
+      recipesData[recipeIndex] = updatedRecipe;
+
+      fs.writeFile(recipesFilePath, JSON.stringify(recipesData, null, 2), (err) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send("Error writing recipes file");
+          return;
+        }
+
+        res.send("Recipe updated successfully");
+      });
+    } else {
+      res.status(404).send("Recipe not found");
+    }
+  });
+});
+
 
 
 app.listen(port, () => {
