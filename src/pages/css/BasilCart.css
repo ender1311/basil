@@ -1,4 +1,53 @@
 .product-image {
     height: 150px;
-    width: auto;
+    max-width: 150px;
   };
+
+  .basil-cart-container {
+    margin: 50px auto;
+  }
+  
+  .loading-message {
+    font-size: 28px;
+  }
+  
+  .basil-cart-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    height:300px;
+  }
+  
+  .item-description {
+    font-size: 18px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .buttons {
+    display: flex;
+  }
+  
+  .item-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .quantity-input {
+    width: 50px;
+    margin:10px;
+  }
+  

@@ -1,5 +1,4 @@
-// Filename: AddRecipeUrl.js
-
+/*
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +6,9 @@ import { load } from "cheerio";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+// Import the ScraperFactory
+import ScraperFactory from "../scraper/helpers/ScraperFactory";
 
 export function AddRecipeUrl() {
   const [name, setName] = useState("");
@@ -17,25 +19,22 @@ export function AddRecipeUrl() {
   const [directions, setDirections] = useState([]);
   const navigate = useNavigate();
 
+  // Initialize the ScraperFactory
+  const scraperFactory = new ScraperFactory();
+
   const fetchRecipeData = async (url) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/fetch-url", { url });
-
-      const $ = load(response.data);
-
+      // Get the appropriate scraper for the given URL
+      const scraper = scraperFactory.getScraper(url);
+      
       // Scrape the target URL for recipe information
-      // You may need to customize these selectors based on the website you're targeting
-      const recipeName = $("h1").text();
-      const recipeDescription = $("p.description").text();
-      const recipeImage = $("img.recipe-image").attr("src");
-      const recipeIngredients = $("ul.ingredients").text();
-      const recipeDirections = $("ol.directions").text();
+      const recipeData = await scraper.fetchRecipe();
 
-      setName(recipeName);
-      setDescription(recipeDescription);
-      setImage(recipeImage);
-      setIngredients(recipeIngredients.split('\n'));
-      setDirections(recipeDirections.split('\n'));
+      setName(recipeData.name);
+      setDescription(recipeData.description);
+      setImage(recipeData.image);
+      setIngredients(recipeData.ingredients);
+      setDirections(recipeData.instructions);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -57,10 +56,10 @@ export function AddRecipeUrl() {
       const response = await axios.post("http://localhost:8000/api/recipes", newRecipe);
       console.log(response.data);
 
-          // Display toast notification when recipe is successfully created
+      // Display toast notification when recipe is successfully created
       toast.success('Recipe created successfully!', {
-      position: toast.POSITION.TOP_RIGHT
-    });
+        position: toast.POSITION.TOP_RIGHT
+      });
 
       navigate("/");
     } catch (error) {
@@ -89,3 +88,5 @@ export function AddRecipeUrl() {
     </>
   );
 }
+
+*/
