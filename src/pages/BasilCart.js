@@ -34,7 +34,8 @@ export function BasilCart() {
                 // Remove words like "cup" and characters before it, "piece", and "ounces"
             //const cleanedIngredient2 = cleanedIngredient.replace(/^.*cup\s*/, '').replace(/piece\s*/g, '').replace(/ounces\s*/g, '');
     
-            const cleanedIngredient = ingredient.replace(/(\d+\s*(\w+)?\s*)|(\([^)]*\)\s*)|(\[[^\]]*\]\s*)|fresh|(-\s*)|\d+\s*\w+\s*\d+\s*\w+|cup\s*|piece\s*|ounces\s*/g, '').replace(/^[/-]\s*/, '').trim();            console.log("Cleaned ingredient:", cleanedIngredient);
+            const cleanedIngredient = ingredient.replace(/(\d+\s*(\w+)?\s*)|(\([^)]*\)\s*)|(\[[^\]]*\]\s*)|fresh|(-\s*)|\d+\s*\w+\s*\d+\s*\w+|cup\s*|piece\s*|ounces\s*/g, '').replace(/^[/-]\s*/, '').trim();            
+            console.log("Cleaned ingredient:", cleanedIngredient);
             try {
               const response = await axios.get(
                 "https://api.kroger.com/v1/products",
@@ -110,6 +111,7 @@ export function BasilCart() {
             return;
           }
     
+          console.log('Access token:', accessToken)
 
           // Call the AddToKrogerCart function and wait for the response
           await AddToKrogerCart(itemsForKroger, accessToken);

@@ -42,9 +42,13 @@ export function AppNavbar() {
         <Nav.Link as={Link} to="/">
           Recipe Catalog
         </Nav.Link>
+        
+        {/* 
         <Nav.Link as={Link} to="/add-recipe-url">
           Add Recipe (URL)
-        </Nav.Link>
+        </Nav.Link> 
+        */}
+        
         <Nav.Link as={Link} to="/copy-recipe">
           Copy Recipe
         </Nav.Link>

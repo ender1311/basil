@@ -23,6 +23,8 @@ export const AddToKrogerCart = async (items, accessToken) => {
 
     const response = await fetch(url, requestOptions);
     if (!response.ok) {
+      const errorResponse = await response.json(); // Get error response from Kroger API
+      console.error('Error response from Kroger API:', errorResponse);
       throw new Error(`Kroger API error: ${response.statusText}`);
     }
     return response.json();

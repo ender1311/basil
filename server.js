@@ -152,6 +152,29 @@ app.post("/api/recipes/update", (req, res) => {
   });
 });
 
+// Add a new route for handling Kroger API requests
+
+app.post("/api/kroger", async (req, res) => {
+  const { accessToken, searchTerm, filters } = req.body;
+  try {
+    const response = await axios.get('https://api.kroger.com/v1/products', {
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      params: {
+        'filter.term': searchTerm,
+        'filter.limit': 4,
+        'filter.brand': filters.brand,
+        'filter.category': filters.category,
+      },
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).send('Error fetching products');
+  }
+});
 
 
 app.listen(port, () => {

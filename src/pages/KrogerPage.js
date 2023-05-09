@@ -7,6 +7,9 @@ const clientId = process.env.REACT_APP_kroger_clientId;
 const clientSecret = process.env.REACT_APP_kroger_clientSecret;
 const redirectUri = 'http://localhost:3000/kroger';
 
+const api = axios.create({
+  baseURL: 'http://localhost:8000',
+});
 
 const base64Encode = (data) => {
   return btoa(unescape(encodeURIComponent(data)));
@@ -15,7 +18,9 @@ const base64Encode = (data) => {
 export function KrogerPage() {
   const [accessToken, setAccessToken] = useState(null);
   const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("cookies ice cream");
+  const [tokenExpirationTime, setTokenExpirationTime] = useState(null);
+
   const [filters, setFilters] = useState({
     brand: "",
     fulfillment: "",
@@ -42,10 +47,13 @@ export function KrogerPage() {
       console.log(response.data);
 
       setAccessToken(response.data.access_token);
-
-      // Save the access token in localStorage
-        localStorage.setItem('accessToken', response.data.access_token);
-        localStorage.setItem('refreshToken', response.data.refresh_token);
+      setTokenExpirationTime(Date.now() + response.data.expires_in * 1000);
+      
+      // Save the access token and expiration time in localStorage
+      localStorage.setItem('accessToken', response.data.access_token);
+      localStorage.setItem('tokenExpirationTime', Date.now() + response.data.expires_in * 1000);
+      localStorage.setItem('refreshToken', response.data.refresh_token);
+      
       return;
     } catch (error) {
       console.error('Error getting access token:', error);
@@ -67,9 +75,12 @@ export function KrogerPage() {
       console.log(response.data);
   
       setAccessToken(response.data.access_token);
-  
-      // Update the access token in localStorage
+      setTokenExpirationTime(Date.now() + response.data.expires_in * 1000);
+      
+      // Update the access token and expiration time in localStorage
       localStorage.setItem('accessToken', response.data.access_token);
+      localStorage.setItem('tokenExpirationTime', Date.now() + response.data.expires_in * 1000);
+      
   
       return;
     } catch (error) {
@@ -83,7 +94,7 @@ export function KrogerPage() {
       client_id: clientId,
       redirect_uri: redirectUri,
       response_type: 'code',
-      scope: 'cart.basic:write', // Updated scope AND  profile.compact product.compact
+      scope: 'cart.basic:write profile.compact product.compact', // Updated scope AND  
     })}`;
     console.log(`authUrl: ${authUrl}`)
   
@@ -91,14 +102,16 @@ export function KrogerPage() {
   };
   
   useEffect(() => {
-    
-    const storedAccessToken = localStorage.getItem('accessToken');
-    const storedRefreshToken = localStorage.getItem('refreshToken');
-    //const storedAccessToken = null;
-    //const storedRefreshToken = null;
-    
-    if (storedAccessToken) {
+     var storedAccessToken = localStorage.getItem('accessToken');
+     var storedRefreshToken = localStorage.getItem('refreshToken');
+     const storedTokenExpirationTime = localStorage.getItem('tokenExpirationTime');
+  
+     //storedAccessToken = null;
+     //storedRefreshToken = null;
+
+    if (storedAccessToken && storedTokenExpirationTime && Date.now() < storedTokenExpirationTime) {
       setAccessToken(storedAccessToken);
+      setTokenExpirationTime(storedTokenExpirationTime);
     } else if (storedRefreshToken) {
       refreshAccessToken(storedRefreshToken);
     } else {
@@ -112,6 +125,7 @@ export function KrogerPage() {
       }
     }
   }, []);
+  
 
   /*
   useEffect(() => {
@@ -145,25 +159,18 @@ export function KrogerPage() {
 
   const searchProducts = async (accessToken, searchTerm, filters) => {
     try {
-      const response = await axios.get('https://api.kroger.com/v1/products', {
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${accessToken}`,
-        },
-        params: {
-          'filter.term': searchTerm,
-          'filter.limit': 4,
-          'filter.brand': filters.brand, // Brand filter
-          'filter.category': filters.category, // Category filter
-        },
+      const response = await api.post('/api/kroger', {
+        accessToken,
+        searchTerm,
+        filters,
       });
-
       console.log(response.data);
       setProducts(response.data.data);
     } catch (error) {
       console.error('Error fetching products:', error);
     }
   };
+  
 
   const clearFilters = () => {
     setFilters({
