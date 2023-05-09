@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container, Row, Col, Spinner } from "react-bootstrap";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AddToKrogerCart } from '../components/AddToKrogerCart';
 
 
 export function BasilCart() {
@@ -33,8 +34,7 @@ export function BasilCart() {
                 // Remove words like "cup" and characters before it, "piece", and "ounces"
             //const cleanedIngredient2 = cleanedIngredient.replace(/^.*cup\s*/, '').replace(/piece\s*/g, '').replace(/ounces\s*/g, '');
     
-            const cleanedIngredient = ingredient.replace(/(\d+\s*(\w+)?\s*)|(\([^)]*\)\s*)|(\[[^\]]*\]\s*)|fresh|(-\s*)|\d+\s*\w+\s*\d+\s*\w+|cup\s*|piece\s*|ounces\s*/g, '').replace(/^[\/-]\s*/, '').trim();
-            console.log("Cleaned ingredient:", cleanedIngredient);
+            const cleanedIngredient = ingredient.replace(/(\d+\s*(\w+)?\s*)|(\([^)]*\)\s*)|(\[[^\]]*\]\s*)|fresh|(-\s*)|\d+\s*\w+\s*\d+\s*\w+|cup\s*|piece\s*|ounces\s*/g, '').replace(/^[/-]\s*/, '').trim();            console.log("Cleaned ingredient:", cleanedIngredient);
             try {
               const response = await axios.get(
                 "https://api.kroger.com/v1/products",
@@ -88,10 +88,40 @@ export function BasilCart() {
         return "";
       };
 
-      const handleAddAll = () => {
-        // Add your logic for adding all items to Kroger cart
-        toast.success('All items added to Kroger cart');
+      const handleAddAll = async () => {
+        try {
+          // Convert cartItems to the format expected by the Kroger API
+          const itemsForKroger = cartItems.map(item => {
+            if (!item.upc) {
+              toast.error(`Error: UPC not found for item: ${item.description}`);
+              return null;
+            }
+      
+            return {
+              upc: item.upc,
+              quantity: 1, // You can replace this with the actual quantity from the cart item
+            };
+          }).filter(item => item !== null);
+      
+          console.log('Items for Kroger:', itemsForKroger)
+          // Check if there are items with valid UPC and quantity before proceeding
+          if (itemsForKroger.length === 0) {
+            toast.error('No items with valid UPC and quantity found.');
+            return;
+          }
+    
+
+          // Call the AddToKrogerCart function and wait for the response
+          await AddToKrogerCart(itemsForKroger, accessToken);
+      
+          // Show a success message if the items were added successfully
+          toast.success('All items added to Kroger cart');
+        } catch (error) {
+          // Show an error message if there was a problem
+          toast.error(`Error adding items to Kroger cart: ${error.message}`);
+        }
       };
+      
       
       const handleRemoveAll = () => {
         // Add your logic for removing all items from Kroger cart
@@ -141,8 +171,8 @@ export function BasilCart() {
                           defaultValue="1"
                           className="quantity-input"
                         />
-                        <Button variant="primary" className="ml-2">
-                          Add to Kroger Cart
+                        <Button variant="primary" className="ml-2 add-to-cart-button">
+                          Add
                         </Button>
                         </div>
                     </div>

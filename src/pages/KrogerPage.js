@@ -45,25 +45,75 @@ export function KrogerPage() {
 
       // Save the access token in localStorage
         localStorage.setItem('accessToken', response.data.access_token);
-
+        localStorage.setItem('refreshToken', response.data.refresh_token);
       return;
     } catch (error) {
       console.error('Error getting access token:', error);
     }
   };
 
+  const refreshAccessToken = async (refreshToken) => {
+    try {
+      const response = await axios.post('https://api.kroger.com/v1/connect/oauth2/token', queryString.stringify({
+        grant_type: 'refresh_token',
+        refresh_token: refreshToken,
+      }), {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': `Basic ${base64Encode(`${clientId}:${clientSecret}`)}`,
+        },
+      });
+  
+      console.log(response.data);
+  
+      setAccessToken(response.data.access_token);
+  
+      // Update the access token in localStorage
+      localStorage.setItem('accessToken', response.data.access_token);
+  
+      return;
+    } catch (error) {
+      console.error('Error refreshing access token:', error);
+    }
+  };
+
+  
   const redirectToAuthorization = () => {
     const authUrl = `https://api.kroger.com/v1/connect/oauth2/authorize?${queryString.stringify({
       client_id: clientId,
       redirect_uri: redirectUri,
       response_type: 'code',
-      scope: 'product.compact',
+      scope: 'cart.basic:write', // Updated scope AND  profile.compact product.compact
     })}`;
     console.log(`authUrl: ${authUrl}`)
-
+  
     window.location.href = authUrl;
   };
+  
+  useEffect(() => {
+    
+    const storedAccessToken = localStorage.getItem('accessToken');
+    const storedRefreshToken = localStorage.getItem('refreshToken');
+    //const storedAccessToken = null;
+    //const storedRefreshToken = null;
+    
+    if (storedAccessToken) {
+      setAccessToken(storedAccessToken);
+    } else if (storedRefreshToken) {
+      refreshAccessToken(storedRefreshToken);
+    } else {
+      const code = queryString.parse(window.location.search).code;
+  
+      if (code) {
+        console.log(`code: ${code}`);
+        getAccessToken(code);
+      } else {
+        redirectToAuthorization();
+      }
+    }
+  }, []);
 
+  /*
   useEffect(() => {
 
     // Try to get the access token from localStorage
@@ -86,6 +136,7 @@ export function KrogerPage() {
     }
   }, []);
 
+  */
   useEffect(() => {
     if (accessToken) {
       searchProducts(accessToken, searchTerm, filters);

@@ -1,7 +1,8 @@
 .product-image {
     height: 150px;
     max-width: 150px;
-  };
+    object-fit: cover;
+  }
 
   .basil-cart-container {
     margin: 50px auto;
@@ -18,17 +19,14 @@
     margin-bottom: 20px;
     text-align: center;
     height:300px;
+    
   }
   
   .item-description {
     font-size: 18px;
   }
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+
   
   .title {
     flex-grow: 1;
@@ -37,17 +35,26 @@
   
   .buttons {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+
   }
   
   .item-actions {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 0.5rem;
+    justify-content: center;
   }
   
   .quantity-input {
     width: 50px;
-    margin:10px;
+    margin: 0 10px;
   }
   
+  .add-to-cart-button {
+    width: 70px;
+    margin: 0 10px;
+  }
