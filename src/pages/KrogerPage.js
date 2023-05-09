@@ -5,7 +5,7 @@ import "./css/KrogerPage.css"
 
 const clientId = process.env.REACT_APP_kroger_clientId;
 const clientSecret = process.env.REACT_APP_kroger_clientSecret;
-const redirectUri = 'http://localhost:3000/kroger';
+const redirectUri = 'REACT_APP_kroger_redirectUri';
 
 const api = axios.create({
   baseURL: 'http://localhost:8000',
