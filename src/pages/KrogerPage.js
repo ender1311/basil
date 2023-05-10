@@ -5,7 +5,8 @@ import "./css/KrogerPage.css"
 
 const clientId = process.env.REACT_APP_kroger_clientId;
 const clientSecret = process.env.REACT_APP_kroger_clientSecret;
-const redirectUri = 'REACT_APP_kroger_redirectUri';
+const redirectUri = 'http://localhost:3000/kroger';
+//const redirectUri = process.env.REACT_APP_kroger_redirectUri;
 
 const api = axios.create({
   baseURL: 'http://localhost:8000',
@@ -107,7 +108,7 @@ export function KrogerPage() {
      const storedTokenExpirationTime = localStorage.getItem('tokenExpirationTime');
   
      //storedAccessToken = null;
-     //storedRefreshToken = null;
+     storedRefreshToken = null;
 
     if (storedAccessToken && storedTokenExpirationTime && Date.now() < storedTokenExpirationTime) {
       setAccessToken(storedAccessToken);
