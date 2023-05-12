@@ -1,6 +1,7 @@
 // src/components/Login.js
+/*
 import React from 'react';
-import { GoogleLogin } from 'react-google-login';
+//import { GoogleLogin } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 
 export function Login() {
@@ -30,3 +31,4 @@ export function Login() {
     </div>
   );
 }
+*/

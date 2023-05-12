@@ -33,6 +33,7 @@
     color: red;
     margin-bottom: 10px;
     padding-left: 20px;
+    text-align: center;
   }
   
   ul,
@@ -49,4 +50,43 @@
 .button-container {
   display: flex;
   justify-content: flex-end;
+}
+
+/* Add this to RecipeDetail.css */
+.ingredient-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient-content {
+  display: flex;
+  align-items: center;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0;
+}
+
+.dragging {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border: black 1px solid;
+}
+
+.direction-row.dragging {
+  background-color: gray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border: black 1px solid; 
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.custom-checkbox {
+  width: 25px;
+  height: 25px;
 }

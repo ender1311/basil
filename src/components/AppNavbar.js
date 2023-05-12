@@ -1,7 +1,7 @@
 // src/components/AppNavbar.js
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+//import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { useNavigate } from "react-router-dom";
 import "./AppNavbar.css";
 //import bootstrap css
@@ -59,7 +59,11 @@ export function AppNavbar() {
         <Nav.Link as={Link} to="/basil-cart">
           Basil Cart
         </Nav.Link>
+        <Nav.Link as={Link} to="/kroger" /*className="kroger-api-link"*/> 
+           Kroger API
+          </Nav.Link>
         <div className="google-buttons-container">
+        {/* 
         {isUserLoggedIn() ? (
           <GoogleLogout
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -79,10 +83,9 @@ export function AppNavbar() {
           />
 
         
-        )}
-          <Nav.Link as={Link} to="/kroger" className="kroger-api-link"> 
-           Kroger API
-          </Nav.Link>
+        )} 
+        */}
+ 
           
       </div>
       </Nav>
